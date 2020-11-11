@@ -23,9 +23,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/**").hasIpAddress(origin).anyRequest().authenticated() //supports only conetions from localhost 127.0.0.1 you can set this
-        .and().httpBasic().and().csrf().disable();
 
+        if(origin.equals("all")) {
+
+            http.authorizeRequests().antMatchers("/**").authenticated() // for development porpusoses allow all ips to call the api
+            .and().httpBasic().and().csrf().disable();
+
+        } else {
+
+            http.authorizeRequests().antMatchers("/**").hasIpAddress(origin).anyRequest().authenticated() //to allow only conections from "origin" ip, you can set this as you want
+            .and().httpBasic().and().csrf().disable();
+
+        }
+
+     
         http.sessionManagement() // dont create a session for this configuration
         .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }   
