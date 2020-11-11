@@ -22,7 +22,7 @@ spec:
           - name: API_KEY
             value: password.2020
           - name: ALLOWED-ORIGIN
-            value: "*"
+            value: all
 ---
 apiVersion: "autoscaling/v1"
 kind: "HorizontalPodAutoscaler"
