@@ -1,13 +1,13 @@
-package mauricioRojas.fallabellatechtest;
+// package mauricioRojas.fallabellatechtest;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class FallabellaTechtestApplicationTests {
+// @SpringBootTest
+// class FallabellaTechtestApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }
