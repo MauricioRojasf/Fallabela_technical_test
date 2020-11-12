@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: "pi-random-api"
-          image: "gcr.io/personal-playground-295320/pi-random-api:0.1.2"
+          image: "gcr.io/personal-playground-295320/pi-random-api:$COMMIT_SHA"
           env:
           - name: API_KEY
             value: password.2020
