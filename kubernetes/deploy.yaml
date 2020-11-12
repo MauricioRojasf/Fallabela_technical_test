@@ -1,0 +1,41 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "pi-random-api"
+  namespace: "falabella-api"
+  labels:
+    app: "falabella-pi-random"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: "falabella-pi-random"
+  template:
+    metadata:
+      labels:
+        app: "falabella-pi-random"
+    spec:
+      containers:
+        - name: "pi-random-api"
+          image: "gcr.io/personal-playground-295320/github.com/mauriciorojasf/fallabela_technical_test"
+          env:
+          - name: API_KEY
+            value: password.2020
+          - name: ALLOWED-ORIGIN
+            value: all
+---
+apiVersion: "autoscaling/v1"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: "pi-random-deploy-hpa"
+  namespace: "falabella-api"
+  labels:
+    app: "falabella-pi-random"
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: "pi-random-api"
+    apiVersion: "apps/v1beta1"
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
