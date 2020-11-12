@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: "pi-random-api"
-          image: "gcr.io/personal-playground-295320/pi-random-api:$COMMIT_SHA"
+          image: "gcr.io/personal-playground-295320/github.com/mauriciorojasf/fallabela_technical_test"
           env:
           - name: API_KEY
             value: password.2020
